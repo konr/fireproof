@@ -1,19 +1,7 @@
 module Logic where
 
 import           Data.Monoid
-
-data Portfolio =
-  Portfolio {
-    netWorth     :: Float -- FIXME using newtypes?
-  , yearlySpend  :: Float
-  } deriving (Show)
-
-data Year =
-  Year {
-    yearNumber :: Int
-  , inflation :: Float
-  , interestRate :: Float
-  } deriving (Show)
+import           Model
 
 updateAmount :: Year -> Portfolio -> Portfolio
 updateAmount (Year _ _ interestRate) (Portfolio netWorth yearlySpend) =
@@ -21,3 +9,10 @@ updateAmount (Year _ _ interestRate) (Portfolio netWorth yearlySpend) =
     newWorth = remaining * appreciation
     remaining = netWorth - yearlySpend
     appreciation = (1 + interestRate)
+
+updateYear :: Year -> Year
+updateYear (Year number inflation interest) = Year (number + 1) inflation interest
+
+updateFireParams :: FireParams -> FireParams
+updateFireParams (FireParams year portfolio) =
+  FireParams (updateYear year) (updateAmount year portfolio)
