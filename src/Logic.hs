@@ -4,11 +4,11 @@ import           Data.Monoid
 import           Model
 
 updateAmount :: Year -> Portfolio -> Portfolio
-updateAmount (Year _ _ interestRate) (Portfolio netWorth yearlySpend) =
+updateAmount (Year _ inflation interestRate) (Portfolio netWorth yearlySpend) =
   (Portfolio newWorth yearlySpend) where
     newWorth = remaining * appreciation
     remaining = netWorth - yearlySpend
-    appreciation = (1 + interestRate)
+    appreciation = (1 + interestRate - inflation)
 
 updateYear :: Year -> Year
 updateYear (Year number inflation interest) = Year (number + 1) inflation interest

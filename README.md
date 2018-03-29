@@ -1,7 +1,9 @@
-# fireproof
+# Fireproof
 
-FIRE calculator. Currently only a naive version.
+CLI FIRE calculator in Haskell.
 
-# Roadmap
+# Features Wishlist
 
-FIXME
+- [X] Simulate using basic numeric information
+- [ ] Montecarlo simulation using bonds and stocks
+- [ ] Integrate with hledger
