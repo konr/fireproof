@@ -3,6 +3,7 @@ module Model where
 data Portfolio =
   Portfolio {
     netWorth     :: Float -- FIXME using newtypes?
+  , save         :: Float
   , yearlySpend  :: Float
   } deriving (Show, Eq)
 
