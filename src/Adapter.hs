@@ -1,6 +1,7 @@
 module Adapter where
 
 import Model
+import Logic
 
 prettyTuple :: (String, String) -> String
 prettyTuple (k,v) = " - " ++ k ++ ": " ++ v
@@ -8,6 +9,7 @@ prettyTuple (k,v) = " - " ++ k ++ ": " ++ v
 yearNetWorth :: FireParams -> String
 yearNetWorth (FireParams year portfolio) = "[" ++ (show $ yearNumber year) ++ "] "
                                            ++ "Net Worth: $" ++ (show $ netWorth portfolio)
+                                           ++ "\t Spend: $" ++  (show $ portfolioSpend portfolio)
 
 parameters :: FireParams -> [String]
 parameters (FireParams year portfolio) =
