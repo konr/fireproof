@@ -3,7 +3,6 @@ module Logic where
 import           Data.Monoid
 import           Model
 
-
 portfolioSpend :: Portfolio -> Float  -- FIX
 portfolioSpend (Portfolio netWorth save yearlySpend) = totalSpend netWorth yearlySpend
 
